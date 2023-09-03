@@ -1,7 +1,6 @@
 class Corredor implements Runnable {
     private String nombre;
     private int distanciaRecorrida;
-
     public Corredor(String nombre) {
         this.nombre = nombre;
         this.distanciaRecorrida = 0;
