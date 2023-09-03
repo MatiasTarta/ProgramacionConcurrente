@@ -1,20 +1,34 @@
+import java.util.Random;
+
 class Corredor implements Runnable {
     private String nombre;
     private int distanciaRecorrida;
+
     public Corredor(String nombre) {
         this.nombre = nombre;
         this.distanciaRecorrida = 0;
     }
+    public String getNombre(){
+        return nombre;
+    }
+
+    @Override
     public void run() {
-        for (int i = 1; i <= 10; i++) {
-            System.out.println(nombre + " ha recorrido " + (i * 10) + " metros.");
-            distanciaRecorrida = i * 10;
+        Random rand = new Random();
+        int totalPasos = 30;
+
+        for (int i = 0; i < totalPasos; i++) {
+            int avance = rand.nextInt(10) + 1; // Avance aleatorio entre 1 y 10 metros
+            distanciaRecorrida += avance;
+
+            System.out.println(
+                    nombre + " ha avanzado " + avance + " metros.");
             try {
-                Thread.sleep(100); // Simula el tiempo que toma avanzar
+                Thread.sleep(100); // Simula el tiempo de descanso entre pasos
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         }
-        System.out.println(nombre + " ha terminado la carrera!");
+        //System.out.println(nombre + " ha terminado la carrera!");
     }
 }
