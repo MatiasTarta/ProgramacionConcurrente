@@ -16,23 +16,27 @@ public class CajeroThread implements Runnable {
         this.cliente = unCliente;
     }
 
-    @Override
     public void run() {
+        // Obtén el tiempo inicial antes de comenzar a procesar
+        this.initialTime = System.currentTimeMillis();
+
         System.out.println("El cajero " + this.nombre +
-                " COMIENZA A PROCESAR LA COMPRA DEL CLIENTE " +
-                this.cliente.getNombre() + " EN EL TIEMPO: " +
-                (System.currentTimeMillis() - this.initialTime) / 1000 + "seg");
+                " COMIENZA A PROCESAR LA COMPRA DEL CLIENTE "
+                + this.cliente.getNombre() + " EN EL TIEMPO: "
+                + (System.currentTimeMillis() - this.initialTime) / 1000 + "seg");
 
         for (int i = 0; i < this.cliente.getCarroCompra().length; i++) {
             this.esperarXsegundos(cliente.getCarroCompra()[i]);
-            System.out.println("El Cajero " + nombre + " está procesando el producto " + (i + 1) +
-                    " del cliente " + this.cliente.getNombre() + "->Tiempo: " +
-                    (System.currentTimeMillis() - this.initialTime) / 1000 + "seg");
+            System.out.println(
+                    "El cajero "+this.nombre+
+                    " esta procesado el producto " + (i + 1) + " del cliente " + this.cliente.getNombre() + "->Tiempo: " +
+                            (System.currentTimeMillis() - this.initialTime) / 1000
+                            + "seg");
         }
-
-        System.out.println("El cajero " + this.nombre + " HA TERMINADO DE " +
-                "PROCESAR " + this.cliente.getNombre() + " EN EL TIEMPO: " +
-                (System.currentTimeMillis() - this.initialTime) / 1000 + "seg");
+        System.out.println("El cajero " + this.nombre + " HA TERMINADO DE PROCESAR " + this.cliente.getNombre()
+                + " EN EL TIEMPO: " +
+                (System.currentTimeMillis() - this.initialTime) / 1000 +
+                "seg");
     }
 
     private void esperarXsegundos(int segundos) {
