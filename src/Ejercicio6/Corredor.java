@@ -1,3 +1,4 @@
+package Ejercicio6;
 import java.util.Random;
 
 class Corredor implements Runnable {
@@ -11,6 +12,10 @@ class Corredor implements Runnable {
     public String getNombre(){
         return nombre;
     }
+    public int getDistanciaRecorrida() {
+        return distanciaRecorrida;
+    }
+
 
     @Override
     public void run() {
@@ -22,7 +27,7 @@ class Corredor implements Runnable {
             distanciaRecorrida += avance;
 
             System.out.println(
-                    nombre + " ha avanzado " + avance + " metros.");
+                    nombre + " ha avanzado " + avance + " pasos.");
             try {
                 Thread.sleep(100); // Simula el tiempo de descanso entre pasos
             } catch (InterruptedException e) {

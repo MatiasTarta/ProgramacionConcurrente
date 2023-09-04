@@ -1,13 +1,15 @@
+package Ejercicio6;
 public class App {
     public static void main(String[] args) throws Exception {
-        int numCorredores=5;
+         
+          int numCorredores=5;
         Corredor[] corredores = new Corredor[numCorredores]; // Arreglo de corredores
 
-        corredores[0] = new Corredor("Messi");
+        corredores[4] = new Corredor("Leo Messi");
         corredores[1] = new Corredor("Judas");
         corredores[2] = new Corredor("Nico Cayo");
         corredores[3] = new Corredor("Davo Xeneixe");
-        corredores[4] = new Corredor("Agusneta");
+        corredores[0] = new Corredor("Agusneta");
 
         // Crea hilos para cada corredor y comienza la carrera
         Thread[] hilosCorredores = new Thread[5]; // Arreglo de hilos
@@ -25,16 +27,13 @@ public class App {
         for (int i = 0; i < numCorredores; i++) {
             try {
                 hilosCorredores[i].join();
-                System.out.println();
-                System.out.println(corredores[i].getNombre() + " Gano.");
-                break; // Salir del bucle una vez que se haya encontrado el primer corredor que terminó.
+                if(31> corredores[i].getDistanciaRecorrida()){
+                    System.out.println(corredores[i].getNombre()+" Gano");
+                    break;
+                }
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         }
-       
-
-        
-
     }
 }
