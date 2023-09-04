@@ -15,15 +15,20 @@ public class MainThread {
         cajero1.setCliente(cliente1);
         cajero2.setCliente(cliente2);
 
-        // Tiempo inicial de referencia
-        long initialTime = System.currentTimeMillis();
-
         // Crear hilos para los cajeros y comenzar su ejecución
         Thread threadCajero1 = new Thread(cajero1);
         Thread threadCajero2 = new Thread(cajero2);
 
         threadCajero1.start();
         threadCajero2.start();
+
+        // Esperar a que ambos hilos terminen antes de continuar si es necesario
+        try {
+            threadCajero1.join();
+            threadCajero2.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
     }
 }

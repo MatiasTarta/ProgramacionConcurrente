@@ -12,9 +12,10 @@ public class CajeroThread implements Runnable {
     }
 
     // Constructor, y métodos de acceso
-    public void setCliente(Cliente unCliente){
-        this.cliente= unCliente;
+    public void setCliente(Cliente unCliente) {
+        this.cliente = unCliente;
     }
+
     @Override
     public void run() {
         System.out.println("El cajero " + this.nombre +
@@ -36,10 +37,10 @@ public class CajeroThread implements Runnable {
 
     private void esperarXsegundos(int segundos) {
         try {
-            Thread.sleep(segundos * 1000);
+            Thread.sleep(segundos * 1000); // Convierte segundos a milisegundos
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
         }
     }
-}
 
+}
