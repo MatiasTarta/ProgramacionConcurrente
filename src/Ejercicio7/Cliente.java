@@ -1,3 +1,5 @@
+package Ejercicio7;
+
 public class Cliente {
     private String nombre;
     private int[] carroCompra;
@@ -15,4 +17,3 @@ public class Cliente {
         return carroCompra;
     }
 }
-
