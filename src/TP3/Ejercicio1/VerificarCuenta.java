@@ -6,7 +6,7 @@ import java.util.logging.Logger;
 public class VerificarCuenta implements Runnable {
     private CuentaBanco cb = new CuentaBanco();
 
-    private void HacerRetiro(int cantidad) throws InterruptedException {
+    private synchronized void HacerRetiro(int cantidad) throws InterruptedException {
         if (cb.getBalance() >= cantidad) {
             System.out.println(Thread.currentThread().getName() + " está realizando un retiro de: " + cantidad + ".");
             Thread.sleep(1000);
@@ -20,7 +20,7 @@ public class VerificarCuenta implements Runnable {
         }
     } // de hacer retiro
 
-    public void run() {
+    public void run()  {
         for (int i = 0; i <= 3; i++) {
             try {
                 this.HacerRetiro(10);

@@ -5,7 +5,7 @@ public class App {
           int numCorredores=5;
         Corredor[] corredores = new Corredor[numCorredores]; // Arreglo de corredores
 
-        corredores[4] = new Corredor("Leo Messi");
+        corredores[4] = new Corredor("Kernel");
         corredores[1] = new Corredor("Judas");
         corredores[2] = new Corredor("Nico Cayo");
         corredores[3] = new Corredor("Davo Xeneixe");
