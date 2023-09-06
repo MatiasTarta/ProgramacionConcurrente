@@ -1,4 +1,4 @@
-package Ejercicio6;
+package TP2.Ejercicio6;
 import java.util.Random;
 
 class Corredor implements Runnable {

@@ -1,4 +1,4 @@
-package Ejercicio7;
+package TP2.Ejercicio7;
 
 public class Cajero {
     private String nombre;

@@ -1,6 +1,6 @@
-package Ejercicio7.Ejercicio7b;
+package TP2.Ejercicio7.Ejercicio7b;
 
-import Ejercicio7.Cliente;
+import TP2.Ejercicio7.Cliente;
 
 public class CajeroThread implements Runnable {
     private String nombre;
