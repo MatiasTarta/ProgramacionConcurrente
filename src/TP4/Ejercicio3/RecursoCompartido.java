@@ -30,14 +30,14 @@ public class RecursoCompartido {
     }
 
     public void imprimir1(int repeticiones)throws InterruptedException{
-        //mutexP1.acquire();
+        mutexP1.acquire();
         for(int i=1;i<=repeticiones;i++){
             System.out.println("Proceso1");
         }
         mutexP3.release();
     }
     public void imprimir2(int repeticiones) throws InterruptedException {
-        //mutexP2.acquire();
+        mutexP2.acquire();
         for (int i = 1; i <= repeticiones; i++) {
             System.out.println("Proceso2");
         }
@@ -45,7 +45,7 @@ public class RecursoCompartido {
     }
     
     public void imprimir3(int repeticiones) throws InterruptedException {
-        //mutexP3.acquire();
+        mutexP3.acquire();
         for (int i = 1; i <= repeticiones; i++) {
             System.out.println("Proceso3");
         }
