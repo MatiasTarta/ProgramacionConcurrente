@@ -32,7 +32,7 @@ public class RecursoCompartido {
     }
 
     public void imprimir1(int repeticiones)throws InterruptedException{
-        mutexP1.acquire();
+        //mutexP1.acquire();
         for(int i=1;i<=repeticiones;i++){
             System.out.println("Proceso1 XD");
         }

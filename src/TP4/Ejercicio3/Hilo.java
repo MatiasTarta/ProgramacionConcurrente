@@ -14,7 +14,6 @@ public class Hilo extends Thread {
             recurso.imprimir(repeticiones, nombre);
             System.out.println();
         } catch (InterruptedException e) {
-            
             e.printStackTrace();
         }
     }
