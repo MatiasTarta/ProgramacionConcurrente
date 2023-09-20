@@ -1,0 +1,5 @@
+Implementar el código correspondiente para lograr la sincronización de tres
+procesos (P1,P2,P3) de forma que se establezca el orden de ejecución P1, P3 y
+P2. Así primero se ejecuta P1 y cuando finaliza P1 se puede ejecutar P3 y
+cuando finaliza P3 se puede ejecutar P2 y cuando finaliza P2 se puede ejecutar
+P1 y así sucesivamente.
