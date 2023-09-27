@@ -1,15 +1,25 @@
 package TP4.Ejercicio4;
 
+import java.util.concurrent.Semaphore;
 
+public class Impresora extends Semaphore {
 
-public class Impresora {
-    boolean disponible,ocupada;
+    private boolean disponible;
 
-    public Impresora(){
-        disponible=true;
-        ocupada= !disponible;
+    public Impresora(int permits, boolean disponible) {
+        super(permits);
+        this.disponible = disponible;
     }
-    public boolean getEstado(){
+
+    public boolean getDisponibilidad() {
         return disponible;
+    }
+
+    public void noDisponible() {
+        this.disponible = false;
+    }
+
+    public void liberarDisponible() {
+        this.disponible = true;
     }
 }
