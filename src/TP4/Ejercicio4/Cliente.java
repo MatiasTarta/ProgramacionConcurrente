@@ -2,7 +2,7 @@ package TP4.Ejercicio4;
 
 import java.util.Random;
 
-public class Cliente implements Runnable {
+public class Cliente extends Thread {
     String texto;// texto es lo que imprime el cliente
     GestorImpresoras rc;
     int paginas;
