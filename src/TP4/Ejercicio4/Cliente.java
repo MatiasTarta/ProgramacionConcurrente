@@ -7,11 +7,12 @@ public class Cliente extends Thread {
     GestorImpresoras rc;
     int paginas;
     Random random = new Random();
-
-    public Cliente(String texto, GestorImpresoras rc) {
+    String nombre;
+    public Cliente(String texto, GestorImpresoras rc,String nombre) {
         this.texto = texto;
         this.rc = rc;
         paginas = random.nextInt(10) + 1;
+        this.nombre=nombre;
     }
 
     public String getTexto() {
@@ -20,7 +21,7 @@ public class Cliente extends Thread {
 
     public void run() {
         boolean exito = false;
-        String nombre= Thread.currentThread().getName();
+        
         try {
             // System.out.println(Thread.currentThread().getName());
             while (exito == false) {

@@ -19,7 +19,7 @@ public class GestorImpresoras {
                 impresora[i].noDisponible();
                 impresora[i].acquire();
                 System.out.println(nombre+" esta imprimiendo en la impresora: " + i + "...");
-                //System.out.println(i+":"+texto);
+                System.out.println(i+":"+texto);
                 Thread.sleep(1000*paginas);//simula tiempo de impresion
                 System.out.println(nombre+ " termino de imprimir en la impresora "+i);
                 impresora[i].release();
