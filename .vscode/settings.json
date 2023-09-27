@@ -4,5 +4,6 @@
     "java.project.referencedLibraries": [
         "lib/**/*.jar"
     ],
-    "commentTranslate.hover.enabled": true
+    "commentTranslate.hover.enabled": true,
+    "java.debug.settings.onBuildFailureProceed": true
 }

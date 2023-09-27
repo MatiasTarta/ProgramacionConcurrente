@@ -10,6 +10,7 @@ public class Main {
         Cliente tomi = new Cliente("que onda perro", dunderMifflin);
         Cliente hashinshi = new Cliente("hashinshison", dunderMifflin);
         Cliente giuli = new Cliente("chuulo", dunderMifflin);
+        
         membrillo.start();
         marto.start();
         davor.start();

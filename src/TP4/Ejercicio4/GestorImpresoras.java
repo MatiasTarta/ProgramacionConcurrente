@@ -8,7 +8,8 @@ public class GestorImpresoras {
             impresora[i] = new Impresora(1, true);
         }
     }
-    public boolean imprimir(String texto) throws InterruptedException {
+    public boolean imprimir(String texto,int paginas,String nombre) throws InterruptedException {
+        //variable paginas para simular tiempos de impresion distintos en cada hilko
         int i = 0;
         boolean esperando = true;
         boolean exito=false;
@@ -17,10 +18,10 @@ public class GestorImpresoras {
                 // System.out.println(Thread.currentThread().getName());
                 impresora[i].noDisponible();
                 impresora[i].acquire();
-                System.out.println("La impresora: " + i + " esta imprimiendo...");
-                System.out.println(i+":"+texto);
-                Thread.sleep(4000);
-                System.out.println("La impresora: " + i + " termino");
+                System.out.println(nombre+" esta imprimiendo en la impresora: " + i + "...");
+                //System.out.println(i+":"+texto);
+                Thread.sleep(1000*paginas);//simula tiempo de impresion
+                System.out.println(nombre+ " termino de imprimir en la impresora "+i);
                 impresora[i].release();
                 esperando = false;
                 impresora[i].liberarDisponible();
