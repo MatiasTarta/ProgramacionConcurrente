@@ -1,6 +1,5 @@
 package TP4.Ejercicio5;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 
 
 public class Taxista extends Thread {
@@ -10,11 +9,14 @@ public class Taxista extends Thread {
     }
 
     public void run() {
-        while(true){
-            try{
-                taxi.dormir();
-            }catch(InterruptedException ex){
-                Logger.getLogger(Taxista.class.getName()).log(Level.SEVERE, null, ex);
+        while(true) {
+            try {
+                taxi.iniciarRecorrido();
+                System.out.println("El Taxista arranco el recorrido");
+                Thread.sleep(1000);
+                System.out.println("El Taxista termino el recorrido");
+                taxi.finalizarRecorrido();
+            } catch (Exception ex) {
             }
         }
     }
