@@ -18,9 +18,10 @@ public class Asiento {
     public void liberarLugar(){
         sillon.release();
     }
-    
+
     public void despertarBarbero(){
         barbero.release();
+        
     }
     
     public void barbroMimir() throws InterruptedException{

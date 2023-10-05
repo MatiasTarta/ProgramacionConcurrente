@@ -5,10 +5,12 @@ import java.util.concurrent.Semaphore;
 public class Impresora extends Semaphore {
 
     private boolean disponible;
+    private char tipo;
 
-    public Impresora(int permits, boolean disponible) {
+    public Impresora(int permits, boolean disponible,char tipo) {
         super(permits);
         this.disponible = disponible;
+        this.tipo=tipo;
     }
 
     public boolean getDisponibilidad() {
@@ -21,5 +23,8 @@ public class Impresora extends Semaphore {
 
     public void liberarDisponible() {
         this.disponible = true;
+    }
+    public char getTipo(){
+        return tipo;
     }
 }

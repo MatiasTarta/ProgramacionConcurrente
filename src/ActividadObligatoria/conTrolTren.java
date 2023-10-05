@@ -2,11 +2,13 @@ package ActividadObligatoria;
 
 public class conTrolTren extends Thread{
     private Tren unTren;
-    public conTrolTren(Tren trencito){
+    private Maquina boletera;
+    public conTrolTren(Tren trencito,Maquina boleteria){
         unTren=trencito;
+        boletera=boleteria;
     }
      public void run(){
-        while(true){
+        while(boletera.seVendieronTodos()){
             try{
                 unTren.recorrer();
             }catch(InterruptedException ex) {

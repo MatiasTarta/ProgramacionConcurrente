@@ -1,0 +1,15 @@
+6. Considere los siguientes dos hilos: un taxista y usted.
+Usted necesita un taxi para llegar a su destino y el taxista necesita que un pasajero tome el
+taxi para cobrar por su trabajo. Por lo tanto cada uno tiene una tarea. Usted espera tomar el
+taxi y viajar hasta que el taxista le notifique que ha llegado a su destino ya que resultaría
+molesto para usted y para él preguntar cada dos segundos “¿ya llegamos a destino?”.
+Entre distintos viajes, el taxista quiere dormir en el taxi hasta que otro pasajero necesite ser
+conducido hasta algún lugar, no desea despertarse de su siesta cada cinco minutos para ver si
+arribó un pasajero. Por lo tanto, ambos hilos preferirían realizar su trabajo de la manera más
+relajada posible.
+Usted y el taxi necesitan alguna forma de comunicar sus necesidades al otro. Mientras usted
+está ocupado caminando por la calle buscando un taxi, el taxista está durmiendo
+plácidamente en la cabina. Cuando usted le avisa que quiere tomar el taxi, él se despierta y
+comienza a conducir. Cuando usted arriba a su destino, el taxista le notifica que ha llegado y
+continúa con su trabajo. El taxista debe ahora esperar y dormir nuevamente una siesta hasta
+que el próximo pasajero llegue. Diseñe una solución de comunicación de los hilos que modele dicha situacion

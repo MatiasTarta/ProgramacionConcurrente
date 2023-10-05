@@ -5,9 +5,10 @@ public class GestorImpresoras {
     private Impresora[] impresora = new Impresora[cant];
     public GestorImpresoras(){
         for(int i =0; i<cant ;i++){
-            impresora[i] = new Impresora(1, true);
+            impresora[i] = new Impresora(1, true,'A');
         }
     }
+    
     public boolean imprimir(String texto,int paginas,String nombre) throws InterruptedException {
         //variable paginas para simular tiempos de impresion distintos en cada hilko
         int i = 0;
