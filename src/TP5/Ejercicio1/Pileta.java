@@ -21,10 +21,10 @@ public class Pileta {
     }
     public void salir(int num) throws InterruptedException{
         semEntradaSalida.acquire();
-        System.out.println(num+ " esta Saliendo");
+        System.out.println(num+ " se esta Secando");
         Thread.sleep((random.nextInt(5) + 1)*1000);
         semEntradaSalida.release();
-        System.out.println(num+ " salio");
+        System.out.println(num+ " salio y se libero un espacio");
          semDisponible.release();
     }
 
