@@ -34,7 +34,7 @@ public class Comedor {
 
     public void comer(char tipo)throws InterruptedException{
         if(tipo==comederoActual){
-           0
+           
             semComedor.acquire();
             capacidad--;
             System.out.println(tipo+" "+Thread.currentThread().getName() +" esta comiendo");
