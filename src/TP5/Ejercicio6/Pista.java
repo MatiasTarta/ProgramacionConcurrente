@@ -11,6 +11,7 @@ public class Pista {
     private int contador;
     private int aterrizajesRestantes;
     private Random random = new Random();
+    private Semaphore mutexUso;
     public Pista(int cantDespegues){
         semPista=new Semaphore(1);
         despegues= cantDespegues;
@@ -19,22 +20,23 @@ public class Pista {
         avionEsperando=false;
         despegues=cantDespegues;
         aterrizajesRestantes=0;
+        mutexUso = new Semaphore(1);
     }
 
     
       public void aterrizar(int avion) throws InterruptedException{
-      
+        semPista.acquire();
         System.out.println(avion+ " esta aterrizando");
-        Thread.sleep(4000);
+        Thread.sleep(1000);
         System.out.println(avion+ "  aterrizo");
         contador++;
          semPista.release();
-
     }
      
-    public void usarPista(char tipo,int avion){
+    public void usarPista(char tipo,int avion)throws InterruptedException{
+        mutexUso.acquire();
         try {
-              semPista.acquire();
+            
             if (tipo == 'A'  ) {
                 if(contador<3){
                     aterrizar(avion);
@@ -46,42 +48,39 @@ public class Pista {
                     }
                 }
             } else if (tipo == 'D' ) {
-               
                 despegar(avion);
-               
             }
+            mutexUso.release();
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
         }
     }
+
     public void priorizarDespegue(int avion) throws InterruptedException{
-       
+        semPista.acquire();
         avionEsperando=true;
         System.out.println("El avion "+avion+ " debe esperar a algun despegue");
         semPista.release();
+         mutexUso.release();
         //libera la pista para que otro la use
         aterrizajesRestantes++;
         semAterrizajes.acquire();
-       
         System.out.println(avion+ " esta aterrizando");
-        Thread.sleep(4000);
+        Thread.sleep(1000);
         //random.nextInt(10) + 1)*
-        System.out.println(avion+ "  aterrizo");
+         System.out.println(avion+ "  aterrizo");
+         avionEsperando=false;
          contador++;
-         semPista.release();
          aterrizajesRestantes--;
     }
 
-    public void despegar(int avion){
+    public void despegar(int avion) throws InterruptedException{
+        semPista.acquire();
         System.out.println(avion+ " esta despegando");
-        try {
-            Thread.sleep(4000);
-        } catch (InterruptedException e) {
-            
-            e.printStackTrace();
-        }
+        Thread.sleep(4000);
         System.out.println(avion+ "  despego");
         despegues--;
+        semPista.release();
         if(avionEsperando){
             semAterrizajes.release();
             contador=0;
@@ -90,6 +89,8 @@ public class Pista {
             //condicional utoilizado en el ultimo despegue del dia para acomodar los aviones rezagados
             semAterrizajes.release(aterrizajesRestantes);
         }
+         
+        
     }
    
 }
