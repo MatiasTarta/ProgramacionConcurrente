@@ -1,19 +1,25 @@
 package TP6.Ejercicio2;
 
-public class Estudiante extends Thread{
-    int id;
-    Sala biblioteca;
-    public Estudiante(int identificador,Sala salita){
-        id=identificador;
-        biblioteca=salita;
-    }
+import java.util.Random;
 
-    public void run(){
+public class Estudiante extends Thread {
+    
+    private Sala sala;
+    
+    public Estudiante(String nombre, Sala sala) {
+        super(nombre);
+        this.sala = sala;
+    }
+    
+    public void run() {
+        Random random = new Random();
         try {
-            biblioteca.entrar(id);
-            biblioteca.salir(id);
-        } catch (Exception e) {
-            // TODO: handle exception
+            sala.entrar();
+            Thread.sleep(random.nextInt(1001) + 1000);
+            sala.salir();
+        } catch(Exception ex) {
+            
         }
     }
+    
 }

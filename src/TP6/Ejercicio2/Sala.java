@@ -1,36 +1,27 @@
 package TP6.Ejercicio2;
 
-import java.util.Random;
-
 public class Sala {
-    private int  mesasDisponibles;
-    Random random = new Random();
+    private int  mesas,mesasEnuso;
 
     public Sala(int cantidadMesas) {
-        mesasDisponibles = cantidadMesas;
+        mesas = cantidadMesas;
+        mesasEnuso=0;
     }
 
-    public synchronized void entrar(int id) throws InterruptedException {
-        while (mesasDisponibles <= 0) {
+    public synchronized void entrar() throws InterruptedException {
+        while (mesas == mesasEnuso) {
+             System.out.println(Thread.currentThread().getName()+" debe esperar");
             wait();
-            System.out.println(id+" debe esperar");
+           
         }
         // el estudiante ocupa mesa
-         System.out.println(id + " se sento");
-        mesasDisponibles--;
-        try {
-            Thread.sleep(random.nextInt(10)*(1000));
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
-        
+         System.out.println(Thread.currentThread().getName()+ " se sento");
+       mesasEnuso++;
     }
 
-
-    public void salir(int id) {
-        System.out.println(id + " se fue de la sala");
-        mesasDisponibles++;
-        this.notifyAll();
+    public synchronized void salir() {
+        System.out.println( Thread.currentThread().getName()+" se fue de la sala");
+        mesasEnuso--;
+        this.notify();
     }
 }
