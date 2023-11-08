@@ -11,22 +11,17 @@ public class Almacen {
 
 
     public synchronized void colocarProducto() throws InterruptedException{
-        while (producto==capacidad) {
-            wait();
-        }
+        
         producto++;
         System.out.println("El productor pone un producto en el Almacen.Ahora Hay "+producto);
         this.notifyAll();
     }
 
     public synchronized void consumir()throws InterruptedException{
-        
-        while ((producto==0)) {
-            wait();
-        }
-
+       while ((producto<=0)) {
+        wait();
+       }
         producto--;
-        System.out.println("El Consumidor"+ Thread.currentThread().getName()+" retira un producto, ahora hay "+producto);
-        this.notifyAll();
+        System.out.println(Thread.currentThread().getName()+" retira un producto, ahora hay "+producto);
     }
 }
