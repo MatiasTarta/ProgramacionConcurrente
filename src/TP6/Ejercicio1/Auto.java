@@ -1,18 +1,17 @@
 package TP6.Ejercicio1;
 
 public class Auto extends Thread {
-    GestorTrafico gestor;
-    private int id;
+    Puente puente;
     char tipo;
-    public Auto(int id,GestorTrafico gestor,char tipo){
-        this.gestor=gestor;
-        this.id=id;
+    public Auto(Puente gestor,char tipo,String nombre){
+        super(nombre);
+        this.puente=gestor;
         this.tipo=tipo;
     }
 
     public void run(){
         try {
-            gestor.entrar(tipo,id);
+            puente.entrar(tipo);
         } catch (Exception e) {
             // TODO: handle exception
         }
