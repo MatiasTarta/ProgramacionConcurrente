@@ -1,6 +1,5 @@
 package TP5.Ejercicio6;
 
-import java.util.Random;
 import java.util.concurrent.Semaphore;
 public class Pista {
 
@@ -10,8 +9,8 @@ public class Pista {
     private boolean avionEsperando;
     private int contador;
     private int aterrizajesRestantes;
-    private Random random = new Random();
-    private Semaphore mutexUso;
+
+
     public Pista(int cantDespegues){
         semPista=new Semaphore(1);
         despegues= cantDespegues;
@@ -20,7 +19,7 @@ public class Pista {
         avionEsperando=false;
         despegues=cantDespegues;
         aterrizajesRestantes=0;
-        mutexUso = new Semaphore(1);
+    
     }
 
     
@@ -30,38 +29,17 @@ public class Pista {
         Thread.sleep(1000);
         System.out.println(avion+ "  aterrizo");
         contador++;
-         semPista.release();
+        System.out.println(contador);
+        semPista.release();
     }
      
-    public void usarPista(char tipo,int avion)throws InterruptedException{
-        mutexUso.acquire();
-        try {
-            
-            if (tipo == 'A'  ) {
-                if(contador<3){
-                    aterrizar(avion);
-                }else{
-                    if(despegues>0){
-                        priorizarDespegue(avion);
-                    }else{
-                         aterrizar(avion);
-                    }
-                }
-            } else if (tipo == 'D' ) {
-                despegar(avion);
-            }
-            mutexUso.release();
-        } catch (InterruptedException e) {
-            Thread.currentThread().interrupt();
-        }
-    }
+   
 
     public void priorizarDespegue(int avion) throws InterruptedException{
         semPista.acquire();
         avionEsperando=true;
         System.out.println("El avion "+avion+ " debe esperar a algun despegue");
         semPista.release();
-         mutexUso.release();
         //libera la pista para que otro la use
         aterrizajesRestantes++;
         semAterrizajes.acquire();
@@ -89,8 +67,13 @@ public class Pista {
             //condicional utoilizado en el ultimo despegue del dia para acomodar los aviones rezagados
             semAterrizajes.release(aterrizajesRestantes);
         }
-         
-        
+    }
+
+    public int contadorAterrizajes(){
+        return contador;
+    }
+    public int contadorDespegues(){
+        return despegues;
     }
    
 }
