@@ -35,7 +35,6 @@ public class Mirador {
     public void solicitarBajar() throws InterruptedException {
         escalera.acquire();// la persona (hilo) se sube a la escalera para hacer fila y tirarse por el // tobogan
         System.out.println(Thread.currentThread().getName() + " Esta esperando en la escalera");
-        
     }
 
     public void usarTobogan()throws InterruptedException{
