@@ -2,7 +2,7 @@ package TP6.Ejercicio7;
 
 public class Main {
     public static void main(String[] args) {
-        Ferry barco = new Ferry(3, 4);
+        Ferry barco = new Ferry(7, 11);
         MaquinistaFerry doc = new MaquinistaFerry(barco);
         Entidad[] ocupantes= new Entidad[48];
 
@@ -16,6 +16,5 @@ public class Main {
         for(int k=0;k<ocupantes.length;k++){
             ocupantes[k].start();
         }
-        
     }
 }

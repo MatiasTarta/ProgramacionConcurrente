@@ -8,7 +8,7 @@ public class MaquinistaFerry extends Thread {
     public void run(){
         while (true) {
             try {
-                Thread.sleep(400);
+                Thread.sleep(6000);
                 barco.hacerRecorrido();
             } catch (InterruptedException e) {
                 // TODO Auto-generated catch block
