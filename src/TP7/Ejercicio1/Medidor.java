@@ -10,6 +10,8 @@ public class Medidor  extends Thread{
     public void run(){
         while (true) {
             try {
+                Thread.sleep(3000);
+                museo.cambiarTemperatura();
                 
             } catch (Exception e) {
                 // TODO: handle exception
