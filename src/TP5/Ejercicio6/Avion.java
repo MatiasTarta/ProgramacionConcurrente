@@ -1,26 +1,20 @@
 package TP5.Ejercicio6;
 
 public class Avion extends Thread {
-    private int identificador;
     private char tipo;
-    private TorreControl aeropuerto;
+    private Pista torre;
 
-    public Avion(int identificador, char tipo,TorreControl torre) {
-        this.identificador = identificador;
+    public Avion(String nombre,char tipo,Pista torre) {
+        super(nombre);
         this.tipo = tipo;
-       aeropuerto=torre;
+       this.torre=torre;
     }
-
-    public int getIdentificador() {
-        return identificador;
-    }
-
     public char getTipo() {
         return tipo;
     }
     public void run(){
         try {
-            aeropuerto.usarPista( tipo,identificador);
+            torre.usarPista( tipo);
         } catch (Exception e) {
             // TODO: handle exception
         }
