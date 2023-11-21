@@ -2,7 +2,7 @@ package TP5.Ejercicio1;
 
 public class Main {
     public static void main(String[] args){
-        Pileta pileta=new Pileta(5);
+        Pileta pileta=new Pileta(4);
         GestorPileta gestor = new GestorPileta(pileta);
 
          Nadador[] nadadores = new Nadador[20];
