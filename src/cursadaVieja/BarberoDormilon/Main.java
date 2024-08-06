@@ -1,5 +1,4 @@
-package BarberoDormilon;
-
+package cursadaVieja.BarberoDormilon;
 
 public class Main {
     public static void main(String[] args){

@@ -1,4 +1,4 @@
-package BarberoDormilon;
+package cursadaVieja.BarberoDormilon;
 
 import java.util.concurrent.Semaphore;
 
