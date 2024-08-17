@@ -1,7 +1,8 @@
 package TP1;
 
-public class Main {
+public class App {
     public static void main(String[] args) {
+        System.out.println("Hola");
         double[] v = new double[15];
         acceso_por_indice(v, 16);
 
