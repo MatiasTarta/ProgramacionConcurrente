@@ -2,7 +2,7 @@ package Tp2.Ej6;
 
 import java.util.Random;
 
-public class Corredor implements Runnable {
+public class Corredor implements Runnable throws InterruptedException exception {
       private String nombre;
       private int pasos;
       private Random random;
@@ -25,11 +25,9 @@ public class Corredor implements Runnable {
             pasos+=numeroAleatorio;
         }
         System.out.println("El corredor " + nombre +" dio "+numeroAleatorio+ " pasos.Total Pasos-- "+pasos+" --" );
-        try{
+        
             Thread.sleep(1000);
-        }catch(InterruptedException e){
-
-        }
+        
 
        }
        System.out.println(nombre+" Termino la carrera");
