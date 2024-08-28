@@ -20,23 +20,17 @@ public class Corredor implements Runnable {
     public void run(){
        while (pasos<100) {
         int numeroAleatorio = random.nextInt(10) + 1;
-
-        if(pasos+numeroAleatorio<=100){
-            pasos+=numeroAleatorio;
-        }
+        pasos+=numeroAleatorio;
         System.out.println("El corredor " + nombre +" dio "+numeroAleatorio+ " pasos.Total Pasos-- "+pasos+" --" );
         
             try {
                 Thread.sleep(1000);
             } catch (Exception e) {
                 // TODO: handle exception
-            }
-            
-        
+            }   
        }
        System.out.println(nombre+" Termino la carrera");
     }
-
      public static void main(String[] args) {
         // Crear instancias de corredores
         Corredor corredor1 = new Corredor("Usain Bolt");
