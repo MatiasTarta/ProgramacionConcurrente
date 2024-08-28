@@ -1,4 +1,4 @@
-package TP3;
+package TP3.Ej1;
 
 public class Main {
     public static void main(String[] args) {
@@ -28,7 +28,7 @@ class CuentaBanco {
 class VerificarCuenta implements Runnable {
     private CuentaBanco cb = new CuentaBanco();
 
-    private void HacerRetiro(int cantidad) throws InterruptedException {
+    private synchronized void HacerRetiro(int cantidad) throws InterruptedException {
         if (cb.getBalance() >= cantidad) {
             System.out.println(Thread.currentThread().getName() + " está realizando un retiro de: " + cantidad + ".");
             Thread.sleep(1000);
@@ -50,6 +50,7 @@ class VerificarCuenta implements Runnable {
                 if (cb.getBalance() < 0) {
                     System.out.println("La cuenta está sobregirada.");
                 }
+
             } catch (InterruptedException ex) {
                 ex.printStackTrace();
             }
