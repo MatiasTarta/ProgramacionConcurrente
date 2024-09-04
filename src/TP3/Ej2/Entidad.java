@@ -17,7 +17,6 @@ public class Entidad extends Thread {
         while (energia.valorMana() >= 10) {
             try {
                 accion();
-
                 System.out.println(Thread.currentThread().getName() + " ataco la fuente de mana. Energia actual: "
                         + energia.valorMana());
                 Thread.sleep(1000);
