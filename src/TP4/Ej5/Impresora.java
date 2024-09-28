@@ -1,4 +1,4 @@
-package TP4.Ej4;
+package TP4.Ej5;
 
 import java.util.Random;
 import java.util.concurrent.Semaphore;

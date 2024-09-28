@@ -1,4 +1,4 @@
-package TP4.Ej4;
+package TP4.Ej5;
 
 public class GestorImpresoras {
     private Impresora[] impresoras;
