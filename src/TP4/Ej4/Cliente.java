@@ -11,6 +11,6 @@ public class Cliente implements Runnable {
 
     public void run() {
         // Aquí se debería manejar la impresión
-        gestor.imprimir();
+        // gestor.imprimir();
     }
 }
