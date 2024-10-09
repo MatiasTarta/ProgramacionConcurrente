@@ -12,7 +12,12 @@ public class Cliente implements Runnable {
     @Override
     public void run() {
         try {
+            eljony.sentarseAEsperar();
+            System.out.println("El Cliente N " + nombre + " se sento a jugar a la play");
+
             eljony.sentarse();// una vez sentado el cliente despierta al barbero
+            eljony.liberarSillonEspera();
+            System.out.println("El Cliente N " + nombre + " libero un lugar el sillon");
             System.out.println("Desperta viejo meado");
             eljony.despertarBarbero();
             // System.out.println("Cliente N " + nombre + " pide un buzz cut");

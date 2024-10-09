@@ -4,8 +4,8 @@ public class Main {
     public static void main(String[] args) {
         Barberia elJoni = new Barberia();
         Barbero joni = new Barbero(elJoni);
-        Cliente losVatos[] = new Cliente[5];
-        Thread losVatosThread[] = new Thread[5];
+        Cliente losVatos[] = new Cliente[9];
+        Thread losVatosThread[] = new Thread[9];
 
         for (int i = 0; i < losVatos.length; i++) {
             losVatos[i] = new Cliente(elJoni, i + 1);
