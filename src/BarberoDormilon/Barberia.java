@@ -3,7 +3,7 @@ package BarberoDormilon;
 import java.util.concurrent.Semaphore;
 
 public class Barberia {
-    public Semaphore semSillon = new Semaphore(2);
+    public Semaphore sillonPlay = new Semaphore(2);
     public Semaphore semBarbero = new Semaphore(0);
     public Semaphore sillon = new Semaphore(1);
     public Semaphore salida = new Semaphore(0);
@@ -33,11 +33,11 @@ public class Barberia {
     }
 
     public void sentarseAEsperar() throws InterruptedException {
-        semSillon.acquire();
+        sillonPlay.acquire();
     }
 
     public void liberarSillonEspera() {
-        semSillon.release();
+        sillonPlay.release();
     }
 
 }
