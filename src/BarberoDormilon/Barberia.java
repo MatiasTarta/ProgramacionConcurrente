@@ -39,5 +39,4 @@ public class Barberia {
     public void liberarSillonEspera() {
         sillonPlay.release();
     }
-
 }
