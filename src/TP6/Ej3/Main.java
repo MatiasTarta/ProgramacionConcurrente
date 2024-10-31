@@ -12,7 +12,6 @@ public class Main {
         }
         for (int i = 0; i < clientela.length; i++) {
             clientela[i].start();
-
         }
 
     }
