@@ -11,7 +11,7 @@ public class Main {
 
         // Crear y arrancar hilos de pasajeros
         for (int i = 1; i <= 40; i++) {
-            new Pasajero(ferry, "Pasajero " + i).start();
+            new Pasajero(ferry, "Pasajero" + i).start();
         }
 
         // Crear y arrancar el hilo de ControlFerry

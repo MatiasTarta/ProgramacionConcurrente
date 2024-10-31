@@ -13,7 +13,7 @@ public class Ferry {
     }
 
     public synchronized void sentarse() throws InterruptedException {
-        while (asientos == totalAsientos && !salida) {
+        while (asientos == totalAsientos) {
             this.wait();
         }
         asientos++;
@@ -24,7 +24,7 @@ public class Ferry {
     }
 
     public synchronized void estacionar() throws InterruptedException {
-        while (plazas == totalAsientos && !salida) {
+        while (plazas == totalPlazas) {
             this.wait();
         }
         plazas++;
