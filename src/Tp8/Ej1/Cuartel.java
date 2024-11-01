@@ -19,7 +19,7 @@ public class Cuartel {
         mostradorAlmuerzo.acquire();
         System.out.println("El soldado Nº " + i + " se sirve su almuerzo");
 
-        Thread.sleep(ThreadLocalRandom.current().nextInt(0, 10) * 500);
+        Thread.sleep(ThreadLocalRandom.current().nextInt(0, 10) * 5000);
         mostradorAlmuerzo.release();
     }
 
@@ -27,7 +27,7 @@ public class Cuartel {
         abrelatas.acquire();
         System.out.println("EL soldado Nº " + i + " busca el abrelatas y abre su gaseosa");
 
-        Thread.sleep(ThreadLocalRandom.current().nextInt(0, 10) * 500);
+        Thread.sleep(ThreadLocalRandom.current().nextInt(0, 10) * 5000);
         abrelatas.release();
     }
 
@@ -35,7 +35,7 @@ public class Cuartel {
         mostradorPostre.acquire();
         System.out.println("El soldado Nº " + i + " se sirve su postre");
 
-        Thread.sleep(ThreadLocalRandom.current().nextInt(0, 10) * 500);
+        Thread.sleep(ThreadLocalRandom.current().nextInt(0, 5) * 5000);
         mostradorPostre.release();
     }
 }
