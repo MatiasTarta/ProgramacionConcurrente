@@ -1,4 +1,4 @@
-package TP7;
+package TP7.Ej1;
 
 public class Persona extends Thread {
 
