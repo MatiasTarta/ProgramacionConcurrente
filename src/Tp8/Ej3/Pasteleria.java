@@ -44,8 +44,8 @@ public class Pasteleria {
 
     public void soltarPastel(int peso) throws InterruptedException {
         semaforoCaja.acquire();
-        if (caja > 0) {
-            if (peso <= pesoMax) {
+        if (caja >= 0) {
+            if ((caja + peso) <= pesoMax) {
                 System.out.println("Uno de los brazos coloca un pastel en la caja.");
                 caja += peso;
                 System.out.println("Peso Actual: " + caja);
