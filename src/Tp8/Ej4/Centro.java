@@ -15,13 +15,9 @@ public class Centro {
 
     public void entrar(int id) {
         try {
-            }
-        }catch(
-
-    Exception e)
-    {
-        System.out.println("Error al entrar: " + e.getMessage());
-    }
+        } catch (Exception e) {
+            System.out.println("Error al entrar: " + e.getMessage());
+        }
     }
 
     public void donar(int id) throws InterruptedException {
